@@ -1,57 +1,34 @@
-# http://pythonstudy.xyz/python/article/16-%ED%95%A8%EC%88%98
 
-def sum(a, b):  # 함수
+# def 함수이름():
+#      코드
+
+def sum(a, b):
+    """이 함수는 a와 b를 더한 뒤 결과를 반환하는 함수입니다."""  # docstring
     s = a + b
     return s
 
 
 print(type(sum))
-
 total = sum(4, 7)
 print(total)
 
 
-def f(i, mylist):  # 파라미터 전달방식 - Mutable/Immutable
-    i = i + 1
-    mylist.append(0)
+def sample():
+    """pass - do nothing"""
+    pass
 
 
-k = 10       # k는 int (immutable)
-m = [1, 2, 3]  # m은 리스트 (mutable)
+print(sample.__doc__)
+# pass - do nothing
 
-f(k, m)      # 함수 호출
-print(k, m)  # 호출자 값 체크
-# 출력: 10 [1, 2, 3, 0]
-
-
-def calc(i, j, factor=1):  # Default Parameter
-    return i * j * factor
+help(sample)
+# Help on function sample in module __main__:
+# sample()
+#     pass - do nothing
 
 
-result = calc(10, 20)
-print(result)
-
-
-def report(name, age, score):  # Named Parameter
-    print(name, score)
-
-
-report(age=10, name="Kim", score=80)
-
-
-def total(*numbers):  # 가변길이 파라미터
-    tot = 0
-    for n in numbers:
-        tot += n
-    return tot
-
-
-t = total(1, 2)
-print(t)
-t = total(1, 5, 2, 6)
-print(t)
-
-def calc(*numbers): # return value
+def calc(*numbers):
+    """return value - (count, tot) 튜플을 리턴"""
     count = 0
     tot = 0
     for n in numbers:
@@ -59,5 +36,6 @@ def calc(*numbers): # return value
         tot += n
     return count, tot
 
-count, sum = calc(1,5,2,6)  # (count, tot) 튜플을 리턴
+
+count, sum = calc(1, 5, 2, 6)
 print(count, sum)

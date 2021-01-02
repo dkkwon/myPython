@@ -7,6 +7,20 @@
 # 함수를 콜할 때마다 동일 object에 접근하게 됨
 # parameter를 하나로서 관리하는 것은, recursion을 사용할 때 편리
 
+
+def f(i, mylist):
+    """파라미터 전달방식 - Mutable/Immutable"""
+    i = i + 1
+    mylist.append(0)
+
+
+k = 10         # k는 int (immutable)
+m = [1, 2, 3]  # m은 리스트 (mutable)
+f(k, m)
+print(k, m)
+# 출력: 10 [1, 2, 3, 0]
+
+
 def append(element, seq=[]):
     seq.append(element)
     return seq
