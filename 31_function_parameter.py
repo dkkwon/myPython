@@ -17,6 +17,18 @@ print_numbers(*[41, 51, 61])
 print("******************************")
 
 
+def union2(*args):
+    res = []
+    for s in args:
+        for c in s:
+            if c not in res:
+                res.append(c)
+    return res
+
+
+print(union2("HAM", 'EGG', 'SPAM'))
+
+
 def print_numbers3(a, *args):
     print(a)
     print(args)
@@ -67,6 +79,8 @@ def personal_info(**kwargs):
         print(kw, ': ', arg)
     if 'address' in kwargs:
         print('주소: ', kwargs['address'])
+    for key in kwargs.keys():
+        print(key, '-', kwargs[key])
 
 
 y = {'name': '길동', 'age': 3, 'address': '용산구 이촌동'}
@@ -78,4 +92,17 @@ def custom_print(*args, **kwargs):
 
 
 custom_print(1, 2, 3, sep=':', end='\n')
+print("******************************")
+
+
+def hello():
+    print('Hello, world!')
+
+
+x = hello    # 함수를 변수에 할당
+x()          # Hello, world!: 변수에 들어있는 함수 호출
+
+y = [hello, hello]    # 함수를 리스트에 넣음
+y[0]()                # Hello, world!: 리스트에 들어있는 함수 호출
+y[1]()                # Hello, world!: 리스트에 들어있는 함수 호출
 print("******************************")
